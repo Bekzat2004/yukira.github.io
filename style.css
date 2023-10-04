@@ -1,0 +1,248 @@
+h1 {
+  color: white;
+  font-size: 300%;
+  margin: 25px;
+  }
+.topnav {
+    overflow: hidden;
+    background-color: #0d0d0d;
+    font-size: 120%;
+    margin: 0;
+    padding: 0;
+  }
+.topnav a{
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 0px 0px;
+    text-decoration: none;
+    font-size: 100%;
+  }
+.topnav a:link, a:visited {
+  background-color: transparent;
+  color: white;
+  padding: 12px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 150%;
+  font-family: timesnewroman;
+  display: outline-block;
+  margin: 0px;
+  border: 2px solid #800000;
+  }
+.topnav a:hover, a:active {
+  background-color: #800000;
+ color: black; 
+  border: 2px solid white;
+  }
+header {
+color: white;
+font-size:210%;
+  }
+a {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 0px 0px;
+    text-decoration: none;
+    font-size: 100%;
+    backgroundcolor: yellow;
+  }
+a:link, a:visited {
+  background-color: transparent;
+  color: white;
+  padding: 12px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 150%;
+  font-family: timesnewroman;
+  display: outline-block;
+  margin: 0px;
+  border: 2px solid #800000;
+  }
+a:hover, a:active {
+  background-color: #800000;
+ color: black; 
+  border: 2px solid white;
+  }
+input {
+  background-color: transparent;
+  color: white;
+  padding: 12px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 150%;
+  font-family: timesnewroman;
+  display: outline-block;
+  margin: 0px;
+  border: 2px solid #800000;
+  border-radius: 10px;
+  }
+button {
+  background-color: transparent;
+  color: white;
+  padding: 12px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 130%;
+  font-family: timesnewroman;
+  display: outline-block;
+  margin: 25px;
+  border: 2px solid #800000;
+  }
+button:hover, a:active {
+  background-color: #800000;
+ color: black; 
+  border: 2px solid white;
+  }
+label {
+color: white;
+  }
+p {
+color: white;
+font-size: 150%;
+}
+h3 {
+color: white;
+font-size:180%;
+  }
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+.column img {
+    opacity: 0.8; 
+    cursor: pointer; 
+}
+.column img:hover {
+    opacity: 1;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 975px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+.slideshow-container {
+  max-width: 300px;
+  position: relative;
+  margin: auto;
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+body {
+  background-color: black;
+  font-family: Verdana, sans-serif;
+  margin: 0;
+}
+ul{
+  list-style: none;
+  padding-left: 15px;
+}
+ol {
+  color: white;
+  width: 500px;
+  font-size: 18px;
+}
+table, th, td {
+  border:2px solid white;
+  color: white;
+}
+blockquote{
+  color: white;
+  font-style: italic;
+  
+}
+.tech {
+  border: 3px solid darkolivegreen;
+  color: darkgrey;
+}
+.spaceflight{
+  border: 3px solid darkmagenta;
+  text-decoration:underline;
+text-decoration-style: dotted;
+}
+.science-astronomy{
+  border: 3px solid darkcyan;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: white;
+}
+.main-navigation{
+  list-style: none;
+  padding-left: 15px;
+}
+.footer a{
+  color: yellowgreen;
+  padding: 10px;
+  margin-top: 10px;
+  border: 3px solid darkkhaki;
+}
+h2::before{
+  content: '�';
+}
