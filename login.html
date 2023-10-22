@@ -41,33 +41,101 @@
   <center>
     <div class="container-fluid" style="width: 35%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
       <h2>Login</h2>
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="inputGroup-sizing-lg" style="width: 100px">Username</span>
-        <input type="text" class="form-control" placeholder="Enter your username" aria-label="Username" aria-describedby="inputGroup-sizing-lg">
-      </div><br>
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping" style="width: 100px">Password</span>
-        <input type="text" class="form-control" placeholder="Enter your password" aria-label="Username" aria-describedby="addon-wrapping">
-      </div><br>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Log in
-      </button><br>
-    </center>
-    <div style="position: absolute" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Notification</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            You are succesfully signed in!
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
+      <form id="myForm" onsubmit="return validateForm()">
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="inputGroup-sizing-lg" style="width: 100px">Username</span>
+          <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" aria-label="Username" aria-describedby="inputGroup-sizing-lg">
+          <span id="usernameError" class="error"></span><br>
+        </div><br>
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping" style="width: 100px">Password</span>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" aria-label="Password" aria-describedby="addon-wrapping">
+          <span id="passwordError" class="error"></span><br>
+        </div><br>
+        <button type="submit" class="btn btn-primary" data-bs-toggle="modal">
+          Log in
+        </button><br>
+
+      </form>
+      <span id="feedback" class="error"></span><br>
+      <h1>Countdown Timer</h1>
+      <div id="timer">00:00</div>
+      <div id="controls">
+        <div class="input-group flex-nowrap">
+          <input type="number" id="set-duration" name="password" class="form-control" placeholder="Min" aria-label="Password" aria-describedby="addon-wrapping">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="startTimer()">Start</button>
+        </div><br>
+
       </div>
-    </div>
+    </center>
+    <script>
+    function validateForm() { /* function to check for validation of info */
+      const username = document.getElementById("username");
+      const password = document.getElementById("password");
+      const feedback = document.getElementById("feedback");
+
+      const usernameError = document.getElementById("usernameError");
+      const passwordError = document.getElementById("passwordError");
+
+      usernameError.innerHTML = passwordError.innerHTML = "";
+
+      let valid = true; /*this is a value which changes if there are some unvalid info*/
+
+      if (username.value === "") {
+        usernameError.innerHTML = "Username is required.";
+        valid = false;
+      }
+
+      if (password.value === "") {
+        passwordError.innerHTML = "Password is required.";
+        valid = false;
+      }
+      else if (password.value.length < 8) {
+        passwordError.innerHTML = "Password must be at least 8 characters.";
+        valid = false;
+      }
+      if (valid){ /*notification about validation*/
+        alert("You are succesfully logged in!");
+        else{
+          alert("Login failed. Please check your username and password.");
+        }
+      }
+
+
+      return valid;
+    }
+    let intervalId;
+    let duration;
+
+    function startTimer() { /*function for timer*/
+      const setDurationInput = document.getElementById("set-duration");
+      const timerDisplay = document.getElementById("timer");
+      const minutes = parseInt(setDurationInput.value, 10);
+
+      if (isNaN(minutes)) { /*if there is unvalid number in input type, it alerts an error*/
+        alert("Please enter a valid number.");
+        return;
+      }
+
+      duration = minutes * 60;
+      setDurationInput.disabled = true;
+
+      intervalId = setInterval(function () {
+        if (duration <= 0) {
+          clearInterval(intervalId);
+          setDurationInput.disabled = false;
+          timerDisplay.textContent = "00:00";
+          alert("Timer is up!");
+        } else {
+          const minutesRemaining = Math.floor(duration / 60);
+          const secondsRemaining = duration % 60;
+          const displayMinutes = String(minutesRemaining).padStart(2, "0");
+          const displaySeconds = String(secondsRemaining).padStart(2, "0");
+          timerDisplay.textContent = `${displayMinutes}:${displaySeconds}`;
+          duration--;
+        }
+      }, 1000);
+    }
+    </script>
   </body>
   </html>

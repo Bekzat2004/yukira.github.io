@@ -84,11 +84,54 @@
           </div>
         </div>
       </div>
+      <div style="width: 35%" class="container-fluid" id="todo-list">
+        <center>
+          <h1 class="tech">To-Do List</h1>
+        </center>
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping" style="width: 100px">Task</span>
+          <input type="text" class="form-control" id="taskInput" placeholder="Add a new task" aria-describedby="addon-wrapping">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="addTask()">Add</button>
+        </div><br>
+        <ul id="taskList"></ul>
+      </div>
       <div>
         <h2 class="tech">Our contacts</h2>
         <p>Our gmail: fastburger@gmail.com</p>
         <p>Our WhatsApp: 88005553535</p>
       </div>
     </center>
+
+    <script>
+        function addTask() { /*function for todo-list*/
+            const taskInput = document.getElementById('taskInput');
+            const taskList = document.getElementById('taskList');
+            const taskText = taskInput.value.trim();
+
+            if (taskText === '') { /* if there is empty input, it alerts an error*/
+                alert('Please enter a task.');
+                return;
+            }
+
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <span class="task">${taskText}</span>
+                <span class="delete" onclick="deleteTask(this)">❌</span>
+            `;
+            taskList.appendChild(li); /*adding line to list*/
+            taskInput.value = '';
+        }
+
+        function deleteTask(element) { /*function to delete the task by pressing X button*/
+            const taskList = document.getElementById('taskList');
+            taskList.removeChild(element.parentElement);
+        }
+
+        document.getElementById('taskInput').addEventListener('keyup', function (event) { /*it is for user experience, when writing a task you can press enter for saving*/
+            if (event.key === 'Enter') {
+                addTask();
+            }
+        });
+    </script>
   </body>
   </html>
