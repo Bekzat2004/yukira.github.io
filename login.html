@@ -33,6 +33,11 @@
           <li class="nav-item">
             <a class="nav-link" href="rating.html" target=>Rating</a>
           </li>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Get Discount!</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="game.html" target=>Guess the word!</a></li>
+            <li><a class="dropdown-item" href="drag.html" target=>Drag elements!</a></li>
+          </ul>
         </ul>
       </div>
     </div>
@@ -56,82 +61,78 @@
           Log in
         </button><br>
       </form>
-      <h1>Countdown Timer</h1>
-      <div id="timer">00:00</div>
-      <div id="controls">
-        <div class="input-group flex-nowrap">
-          <input type="number" id="set-duration" name="password" class="form-control" placeholder="Min" aria-label="Password" aria-describedby="addon-wrapping">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="startTimer()">Start</button>
-        </div><br>
-
-      </div>
     </div>
   </center>
-  <script>
-  function validateForm() {
-    const username = document.getElementById("username");
-    const password = document.getElementById("password");
 
-    const usernameError = document.getElementById("usernameError");
-    const passwordError = document.getElementById("passwordError");
+    <script>
 
-    usernameError.innerHTML = passwordError.innerHTML = "";
+    function validateForm() {
+      const username = document.getElementById("username");
+      const password = document.getElementById("password");
 
-    let valid = true;
+      const usernameError = document.getElementById("usernameError");
+      const passwordError = document.getElementById("passwordError");
 
-    if (username.value === "") {
-      usernameError.innerHTML = "Username is required.";
-      valid = false;
-    }
+      usernameError.innerHTML = passwordError.innerHTML = "";
 
-    if (password.value === "") {
-      passwordError.innerHTML = "Password is required.";
-      valid = false;
-    } else if (password.value.length < 8) {
-      passwordError.innerHTML = "Password must be at least 8 characters.";
-      valid = false;
-    }
+      let valid = true;
 
-    if (valid) {
-      alert("You are successfully logged in!");
-    } else {
-      alert("Login failed. Please check your username and password.");
-    }
-
-    return valid;
-  }
-  let intervalId;
-  let duration;
-
-  function startTimer() {
-    const setDurationInput = document.getElementById("set-duration");
-    const timerDisplay = document.getElementById("timer");
-    const minutes = parseInt(setDurationInput.value, 10);
-
-    if (isNaN(minutes)) {
-      alert("Please enter a valid number.");
-      return;
-    }
-
-    duration = minutes * 60;
-    setDurationInput.disabled = true;
-
-    intervalId = setInterval(function () {
-      if (duration <= 0) {
-        clearInterval(intervalId);
-        setDurationInput.disabled = false;
-        timerDisplay.textContent = "00:00";
-        alert("Timer is up!");
-      } else {
-        const minutesRemaining = Math.floor(duration / 60);
-        const secondsRemaining = duration % 60;
-        const displayMinutes = String(minutesRemaining).padStart(1, "0");
-        const displaySeconds = String(secondsRemaining).padStart(1, "0");
-        timerDisplay.textContent = `${displayMinutes}:${displaySeconds}`;
-        duration--;
+      if (username.value === "") {
+        usernameError.innerHTML = "Username is required.";
+        valid = false;
       }
-    }, 1000);
-  }
-  </script>
-</body>
-</html>
+
+      if (password.value === "") {
+        passwordError.innerHTML = "Password is required.";
+        valid = false;
+      } else if (password.value.length < 8) {
+        passwordError.innerHTML = "Password must be at least 8 characters.";
+        valid = false;
+      }
+
+      if (valid) {
+        alert("You are successfully logged in!");
+      } else {
+        alert("Login failed. Please check your username and password.");
+      }
+
+      return valid;
+    }
+    let intervalId;
+    let duration;
+
+    function startTimer() {
+      const setDurationInput = document.getElementById("set-duration");
+      const timerDisplay = document.getElementById("timer");
+      const minutes = parseInt(setDurationInput.value, 10);
+
+      if (isNaN(minutes)) {
+        alert("Please enter a valid number.");
+        return;
+      }
+
+      duration = minutes * 60;
+      setDurationInput.disabled = true;
+
+      intervalId = setInterval(function () {
+        if (duration <= 0) {
+          clearInterval(intervalId);
+          setDurationInput.disabled = false;
+          timerDisplay.textContent = "00:00";
+
+          setTimeout(function() {
+            alert("Timer is up!");
+          }, 100);
+        } else {
+          const minutesRemaining = Math.floor(duration / 60);
+          const secondsRemaining = duration % 60;
+          const displayMinutes = String(minutesRemaining).padStart(1, "0");
+          const displaySeconds = String(secondsRemaining).padStart(1, "0");
+          timerDisplay.textContent = `${displayMinutes}:${displaySeconds}`;
+          duration--;
+        }
+      }, 1000);
+    }
+    </script>
+  </body>
+  </html>

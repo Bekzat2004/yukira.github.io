@@ -12,7 +12,7 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="burger.html">FastBurger</a>
+      <a class="navbar-brand" href="index.html">FastBurger</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -32,6 +32,11 @@
           <li class="nav-item">
             <a class="nav-link" href="rating.html" target=>Rating</a>
           </li>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Get Discount!</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="game.html" target=>Guess the word!</a></li>
+            <li><a class="dropdown-item" href="drag.html" target=>Drag elements!</a></li>
+          </ul>
         </ul>
       </div>
     </div>
@@ -103,35 +108,35 @@
     </center>
 
     <script>
-        function addTask() { /*function for todo-list*/
-            const taskInput = document.getElementById('taskInput');
-            const taskList = document.getElementById('taskList');
-            const taskText = taskInput.value.trim();
+    function addTask() { /*function for todo-list*/
+      const taskInput = document.getElementById('taskInput');
+      const taskList = document.getElementById('taskList');
+      const taskText = taskInput.value.trim();
 
-            if (taskText === '') { /* if there is empty input, it alerts an error*/
-                alert('Please enter a task.');
-                return;
-            }
+      if (taskText === '') { /* if there is empty input, it alerts an error*/
+        alert('Please enter a task.');
+        return;
+      }
 
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <span class="task">${taskText}</span>
-                <span class="delete" onclick="deleteTask(this)">❌</span>
-            `;
-            taskList.appendChild(li); /*adding line to list*/
-            taskInput.value = '';
-        }
+      const li = document.createElement('li');
+      li.innerHTML = `
+      <span class="task">${taskText}</span>
+      <span class="delete" onclick="deleteTask(this)">❌</span>
+      `;
+      taskList.appendChild(li); /*adding line to list*/
+      taskInput.value = '';
+    }
 
-        function deleteTask(element) { /*function to delete the task by pressing X button*/
-            const taskList = document.getElementById('taskList');
-            taskList.removeChild(element.parentElement);
-        }
+    function deleteTask(element) { /*function to delete the task by pressing X button*/
+      const taskList = document.getElementById('taskList');
+      taskList.removeChild(element.parentElement);
+    }
 
-        document.getElementById('taskInput').addEventListener('keyup', function (event) { /*it is for user experience, when writing a task you can press enter for saving*/
-            if (event.key === 'Enter') {
-                addTask();
-            }
-        });
+    document.getElementById('taskInput').addEventListener('keyup', function (event) { /*it is for user experience, when writing a task you can press enter for saving*/
+      if (event.key === 'Enter') {
+        addTask();
+      }
+    });
     </script>
   </body>
   </html>
