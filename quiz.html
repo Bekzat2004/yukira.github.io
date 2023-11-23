@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Game</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300|600" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.0.1/progressbar.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">FastBurger</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign in</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="register.html" target=>Register</a></li>
+            <li><a class="dropdown-item" href="login.html" target=>Login</a></li>
+          </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="menu.html" target=>Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="rating.html" target=>Feedback</a>
+          </li>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Get Discount!</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="game.html" target=>Guess the word!</a></li>
+            <li><a class="dropdown-item" href="drag.html" target=>Drag elements!</a></li>
+            <li><a class="dropdown-item" href="quiz.html" target=>Quiz</a></li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div style="text-align: center" class="container">
+    <h2 class="mt-3 mb-4">Fast Food Quiz!</h2>
+
+    <div id="question1" class="question">
+      <h4>Question 1: What is the main ingredient in a classic hamburger?</h4>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q1" value="beef"> Beef
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q1" value="chicken"> Chicken
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q1" value="fish"> Fish
+      </div>
+    </div>
+
+    <div id="question2" class="question">
+      <h4>Question 2: Which fast food chain is famous for its golden arches?</h4>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q2" value="burger-king"> Burger King
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q2" value="mcdonalds"> McDonald's
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q2" value="kfc"> KFC
+      </div>
+    </div>
+
+    <div id="question3" class="question">
+      <h4>Question 3: What is the name of the famous fried chicken recipe from KFC?</h4>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q3" value="original-recipe"> Original Recipe
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q3" value="extra-crispy"> Extra Crispy
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q3" value="spicy"> Spicy
+      </div>
+    </div>
+
+    <div id="question4" class="question">
+      <h4>Question 4: What is the main filling in a classic BLT sandwich?</h4>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q4" value="bacon"> Bacon
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q4" value="lettuce"> Lettuce
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q4" value="tomato"> Tomato
+      </div>
+    </div>
+
+    <div id="question5" class="question">
+      <h4>Question 5: In which country did the fast food chain Taco Bell originate?</h4>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q5" value="usa"> USA
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q5" value="mexico"> Mexico
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q5" value="canada"> Canada
+      </div>
+    </div>
+
+    <div id="question6" class="question">
+      <h4>Question 6: In which country FastBurger was established?</h4>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q6" value="russia"> Russia
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q6" value="kazakhstan"> Kazakhstan
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q6" value="uzbekistan"> Uzbekistan
+      </div>
+    </div>
+
+    <div id="question7" class="question">
+      <h4>Question 7: Who is the founder of FastBurger?</h4>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q7" value="burba"> Burba Ormanbek
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q7" value="bekzat"> Kanay Bekzat
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q7" value="bzzzzzz"> Mukhammed Ali
+      </div>
+    </div>
+
+    <div id="question8" class="question">
+      <h4>Question 8: When FastBurger was established?</h4>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q8" value="2013"> 2013
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q8" value="2023"> 2023
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q8" value="2021"> 2021
+      </div>
+    </div>
+
+    <div id="question9" class="question">
+      <h4>Question 9: Which of these fastfood restaurants is the best?</h4>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q9" value="mcdonalds"> McDonalds
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q9" value="burgerking"> BurgerKing
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q9" value="fastburger"> FastBurger
+      </div>
+    </div>
+
+    <div id="question10" class="question">
+      <h4>Question 10: What is the main food in FastBurger?</h4>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q10" value="burger"> Burger
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q10" value="pizza"> Pizza
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="q10" value="Doner"> Doner
+      </div>
+    </div>
+    <button id="submitButton" class="btn btn-primary mt-4" onclick="submitQuiz()">Submit</button>
+    <div style="width: 300px; height: 40px; margin: 50px auto;" id="line-container"></div>
+    <button class="btn btn-primary mt-1" id="scrollToTopButton">Scroll to Top</button>
+  </div>
+  <footer class="bg-dark text-white mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <br>
+          <p>Our gmail: fastburger@gmail.com</p>
+          <p>Our WhatsApp: 88005553535</p>
+          <p>&copy; 2023 FastBurger. All rights reserved.</p><br>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <style>
+  .progress-text {
+    font-size: 1.25em;
+    color: black;
+    margin-bottom: 1em;
+    font-weight: 600;
+  }
+  </style>
+  <script>
+  $(document).ready(function() {
+    $("#scrollToTopButton").click(function() {
+      $("html, body").animate({ scrollTop: 0 }, "fast");
+    });
+  });
+  function submitQuiz() {
+    let score = 0;
+
+    const q1Answer = document.querySelector('input[name="q1"]:checked');
+    if (q1Answer && q1Answer.value === 'beef') {
+      score++;
+    }
+
+    const q2Answer = document.querySelector('input[name="q2"]:checked');
+    if (q2Answer && q2Answer.value === 'mcdonalds') {
+      score++;
+    }
+
+    const q3Answer = document.querySelector('input[name="q3"]:checked');
+    if (q3Answer && q3Answer.value === 'original-recipe') {
+      score++;
+    }
+
+    const q4Answer = document.querySelector('input[name="q4"]:checked');
+    if (q4Answer && q4Answer.value === 'bacon') {
+      score++;
+    }
+
+    const q5Answer = document.querySelector('input[name="q5"]:checked');
+    if (q5Answer && q5Answer.value === 'usa') {
+      score++;
+    }
+
+    const q6Answer = document.querySelector('input[name="q6"]:checked');
+    if (q6Answer && q6Answer.value === 'kazakhstan') {
+      score++;
+    }
+
+    const q7Answer = document.querySelector('input[name="q7"]:checked');
+    if (q7Answer && q7Answer.value === 'bekzat') {
+      score++;
+    }
+
+    const q8Answer = document.querySelector('input[name="q8"]:checked');
+    if (q8Answer && q8Answer.value === '2023') {
+      score++;
+    }
+
+    const q9Answer = document.querySelector('input[name="q9"]:checked');
+    if (q9Answer && q9Answer.value === 'fastburger') {
+      score++;
+    }
+
+    const q10Answer = document.querySelector('input[name="q10"]:checked');
+    if (q10Answer && q10Answer.value === 'burger') {
+      score++;
+    }
+
+    if (score == 10){
+      alert('Congratulations! You passed the test. This is your promocode for discount 20%: FASTBURGERTOP25')
+    }
+    else{
+      alert('You failed test. Your score is: ' + score + '/10');}
+      const submitButton = document.getElementById('submitButton');
+      submitButton.disabled = true;
+      var lineBar = new ProgressBar.Line("#line-container", {
+        strokeWidth: 4,
+        trailWidth: 0.5,
+        from: { color: "#FF9900" },
+        to: { color: "#00FF99" },
+        text: {
+          value: '0',
+          className: 'progress-text',
+          style: {
+            color: 'black',
+            position: 'absolute',
+            top: '-30px',
+            padding: 0,
+            margin: 0,
+            transform: null
+          }
+        },
+        step: (state, shape) => {
+          shape.path.setAttribute("stroke", state.color);
+          shape.setText(Math.round(score * 10) + ' %');
+        }
+      });
+
+      lineBar.animate(score / 10, {
+        duration: 4000
+      });
+    }
+
+    </script>
+  </body>
+  </html>
+
+</body>
+</html>

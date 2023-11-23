@@ -5,9 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="icon" type="image/x-icon" href="logo.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="logo.png">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -24,18 +26,16 @@
             <li><a class="dropdown-item" href="login.html" target=>Login</a></li>
           </ul>
           <li class="nav-item">
-            <a class="nav-link" href="order.html" target=>Order</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="menu.html" target=>Menu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="rating.html" target=>Rating</a>
+            <a class="nav-link" href="rating.html" target=>Feedback</a>
           </li>
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Get Discount!</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="game.html" target=>Guess the word!</a></li>
             <li><a class="dropdown-item" href="drag.html" target=>Drag elements!</a></li>
+            <li><a class="dropdown-item" href="quiz.html" target=>Quiz</a></li>
           </ul>
         </ul>
       </div>
@@ -89,54 +89,26 @@
           </div>
         </div>
       </div>
-      <div style="width: 35%" class="container-fluid" id="todo-list">
-        <center>
-          <h1 class="tech">To-Do List</h1>
-        </center>
-        <div class="input-group flex-nowrap">
-          <span class="input-group-text" id="addon-wrapping" style="width: 100px">Task</span>
-          <input type="text" class="form-control" id="taskInput" placeholder="Add a new task" aria-describedby="addon-wrapping">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="addTask()">Add</button>
-        </div><br>
-        <ul id="taskList"></ul>
-      </div>
-      <div>
-        <h2 class="tech">Our contacts</h2>
-        <p>Our gmail: fastburger@gmail.com</p>
-        <p>Our WhatsApp: 88005553535</p>
-      </div>
+      <button class="btn btn-primary mt-1" id="scrollToTopButton">Scroll to Top</button>
     </center>
-
-    <script>
-    function addTask() { /*function for todo-list*/
-      const taskInput = document.getElementById('taskInput');
-      const taskList = document.getElementById('taskList');
-      const taskText = taskInput.value.trim();
-
-      if (taskText === '') { /* if there is empty input, it alerts an error*/
-        alert('Please enter a task.');
-        return;
-      }
-
-      const li = document.createElement('li');
-      li.innerHTML = `
-      <span class="task">${taskText}</span>
-      <span class="delete" onclick="deleteTask(this)">❌</span>
-      `;
-      taskList.appendChild(li); /*adding line to list*/
-      taskInput.value = '';
-    }
-
-    function deleteTask(element) { /*function to delete the task by pressing X button*/
-      const taskList = document.getElementById('taskList');
-      taskList.removeChild(element.parentElement);
-    }
-
-    document.getElementById('taskInput').addEventListener('keyup', function (event) { /*it is for user experience, when writing a task you can press enter for saving*/
-      if (event.key === 'Enter') {
-        addTask();
-      }
-    });
-    </script>
+    <footer class="bg-dark text-white mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <br>
+            <p>Our gmail: fastburger@gmail.com</p>
+            <p>Our WhatsApp: 88005553535</p>
+            <p>&copy; 2023 FastBurger. All rights reserved.</p><br>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
+  <script>
+  $(document).ready(function() {
+    $("#scrollToTopButton").click(function() {
+      $("html, body").animate({ scrollTop: 0 }, "fast");
+    });
+  });
+  </script>
   </html>

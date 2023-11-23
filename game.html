@@ -23,18 +23,16 @@
             <li><a class="dropdown-item" href="login.html" target=>Login</a></li>
           </ul>
           <li class="nav-item">
-            <a class="nav-link" href="order.html" target=>Order</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="menu.html" target=>Menu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="rating.html" target=>Rating</a>
+            <a class="nav-link" href="rating.html" target=>Feedback</a>
           </li>
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Get Discount!</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="game.html" target=>Guess the word!</a></li>
             <li><a class="dropdown-item" href="drag.html" target=>Drag elements!</a></li>
+            <li><a class="dropdown-item" href="quiz.html" target=>Quiz</a></li>
           </ul>
         </ul>
       </div>
@@ -57,86 +55,98 @@
       </div>
     </div>
   </center>
+  <footer class="bg-dark text-white mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <br>
+          <p>Our gmail: fastburger@gmail.com</p>
+          <p>Our WhatsApp: 88005553535</p>
+          <p>&copy; 2023 FastBurger. All rights reserved.</p><br>
+        </div>
+      </div>
+    </div>
+  </footer>
   <audio id="successSound">
     <source src="sound.mp3" type="audio/mpeg">
     </audio>
     <script>
-      const successSound = document.getElementById("successSound");
-      const words = ["burger", "fastfood", "postavtesto"];
-      let hiddenWord = "";
-      let guessedWord = "";
-      const wordDisplay = document.getElementById('wordDisplay');
-      const letterButtons = document.getElementById('letterButtons');
-      const message = document.getElementById('message');
-      const timerDisplay = document.getElementById('timer');
+    const successSound = document.getElementById("successSound");
+    const words = ["burger", "fastfood", "postavtesto"];
+    let hiddenWord = "";
+    let guessedWord = "";
+    const wordDisplay = document.getElementById('wordDisplay');
+    const letterButtons = document.getElementById('letterButtons');
+    const message = document.getElementById('message');
+    const timerDisplay = document.getElementById('timer');
 
-      let intervalId;
-      let duration;
+    let intervalId;
+    let duration;
 
-      function startGameWithTimer() {
-        guessedWord = "";
-        message.textContent = "";
-        clearInterval(intervalId);
-        hiddenWord = pickRandomWord();
-        guessedWord = "_".repeat(hiddenWord.length);
-        updateWordDisplay();
+    function startGameWithTimer() {
+      guessedWord = "";
+      message.textContent = "";
+      clearInterval(intervalId);
+      hiddenWord = pickRandomWord();
+      guessedWord = "_".repeat(hiddenWord.length);
+      updateWordDisplay();
 
-        duration = 60;
+      duration = 60;
 
-        intervalId = setInterval(function () {
-          if (duration <= 0) {
-            clearInterval(intervalId);
-            successSound.play();
-            setTimeout(function() {
-              alert("Time's up! The hidden word was: " + hiddenWord);
-            }, 100);
-            window.close();
-          } else {
-            const minutesRemaining = Math.floor(duration / 60);
-            const secondsRemaining = duration % 60;
-            const displayMinutes = String(minutesRemaining).padStart(2, "0");
-            const displaySeconds = String(secondsRemaining).padStart(2, "0");
-            timerDisplay.textContent = `${displayMinutes}:${displaySeconds}`;
-            duration--;
-          }
-        }, 1000);
-
-        letterButtons.innerHTML = "";
-        for (let i = 0; i < 26; i++) {
-          const letter = String.fromCharCode(97 + i);
-          const button = document.createElement('button');
-          button.className = 'btn btn-primary';
-          button.textContent = letter;
-          button.addEventListener('click', () => checkGuess(letter));
-          letterButtons.appendChild(button);
-        }
-      }
-
-      function pickRandomWord() {
-        return words[Math.floor(Math.random() * words.length)];
-      }
-
-      function updateWordDisplay() {
-        wordDisplay.textContent = guessedWord;
-      }
-
-      function checkGuess(letter) {
-        if (hiddenWord.includes(letter)) {
-          for (let i = 0; i < hiddenWord.length; i++) {
-            if (hiddenWord[i] === letter) {
-              guessedWord = guessedWord.substr(0, i) + letter + guessedWord.substr(i + 1);
-            }
-          }
-          updateWordDisplay();
-          if (guessedWord === hiddenWord) {
-            message.textContent = "Congratulations! You guessed the word! This is your promocode for discount 20%: FASTBURGERTOP25";
-            clearInterval(intervalId);
-            letterButtons.querySelectorAll('button').forEach(button => button.disabled = true);
-          }
+      intervalId = setInterval(function () {
+        if (duration <= 0) {
+          clearInterval(intervalId);
+          successSound.play();
+          setTimeout(function() {
+            alert("Time's up! The hidden word was: " + hiddenWord);
+          }, 100);
+          window.close();
         } else {
-          message.textContent = "Try again.";
+          const minutesRemaining = Math.floor(duration / 60);
+          const secondsRemaining = duration % 60;
+          const displayMinutes = String(minutesRemaining).padStart(2, "0");
+          const displaySeconds = String(secondsRemaining).padStart(2, "0");
+          timerDisplay.textContent = `${displayMinutes}:${displaySeconds}`;
+          duration--;
         }
+      }, 1000);
+
+      letterButtons.innerHTML = "";
+      for (let i = 0; i < 26; i++) {
+        const letter = String.fromCharCode(97 + i);
+        const button = document.createElement('button');
+        button.className = 'btn btn-primary';
+        button.textContent = letter;
+        button.addEventListener('click', () => checkGuess(letter));
+        letterButtons.appendChild(button);
       }
+    }
+
+    function pickRandomWord() {
+      return words[Math.floor(Math.random() * words.length)];
+    }
+
+    function updateWordDisplay() {
+      wordDisplay.textContent = guessedWord;
+    }
+
+    function checkGuess(letter) {
+      if (hiddenWord.includes(letter)) {
+        for (let i = 0; i < hiddenWord.length; i++) {
+          if (hiddenWord[i] === letter) {
+            guessedWord = guessedWord.substr(0, i) + letter + guessedWord.substr(i + 1);
+          }
+        }
+        updateWordDisplay();
+        if (guessedWord === hiddenWord) {
+          message.textContent = "Congratulations! You guessed the word! This is your promocode for discount 20%: FASTBURGERTOP25";
+          clearInterval(intervalId);
+          letterButtons.querySelectorAll('button').forEach(button => button.disabled = true);
+        }
+      } else {
+        message.textContent = "Try again.";
+      }
+    }
     </script>
   </body>
   </html>

@@ -26,18 +26,16 @@
             <li><a class="dropdown-item" href="login.html" target=>Login</a></li>
           </ul>
           <li class="nav-item">
-            <a class="nav-link" href="order.html" target=>Order</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="menu.html" target=>Menu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="rating.html" target=>Rating</a>
+            <a class="nav-link" href="rating.html" target=>Feedback</a>
           </li>
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Get Discount!</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="game.html" target=>Guess the word!</a></li>
             <li><a class="dropdown-item" href="drag.html" target=>Drag elements!</a></li>
+            <li><a class="dropdown-item" href="quiz.html" target=>Quiz</a></li>
           </ul>
         </ul>
       </div>
@@ -75,18 +73,24 @@
       <h1>Countdown Timer</h1>
       <div style="font-size: 500%" id="timer">00:00</div>
     </div>
-    <button id="scrollToTopButton">Scroll to Top</button>
   </center>
+  <footer class="bg-dark text-white mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <br>
+          <p>Our gmail: fastburger@gmail.com</p>
+          <p>Our WhatsApp: 88005553535</p>
+          <p>&copy; 2023 FastBurger. All rights reserved.</p><br>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 <audio id="successSound">
-    <source src="sound.mp3" type="audio/mpeg">
-    </audio>
-<script>
-  $(document).ready(function() {
-      $("#scrollToTopButton").click(function() {
-        $("html, body").animate({ scrollTop: 0 }, "fast");
-      });
-    });
+  <source src="sound.mp3" type="audio/mpeg">
+  </audio>
+  <script>
   const successSound = document.getElementById("successSound");
   const timerDisplay = document.getElementById('timer');
   let intervalId;
@@ -97,7 +101,7 @@
       clearInterval(intervalId);
       successSound.play();
       setTimeout(function() {
-      alert("Time is up!");
+        alert("Time is up!");
       }, 100);
     } else {
       const minutesRemaining = Math.floor(duration / 60);
@@ -184,7 +188,7 @@
 
       case 's2':
       return dropTarget === 'e2' ? true : false;
-
+      
       case 's3':
       return dropTarget === 'e3' ? true : false;
 

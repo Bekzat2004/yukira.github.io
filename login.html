@@ -17,26 +17,22 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sign in
-          </a>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign in</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="register.html" target=>Register</a></li>
             <li><a class="dropdown-item" href="login.html" target=>Login</a></li>
           </ul>
           <li class="nav-item">
-            <a class="nav-link" href="order.html" target=>Order</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="menu.html" target=>Menu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="rating.html" target=>Rating</a>
+            <a class="nav-link" href="rating.html" target=>Feedback</a>
           </li>
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Get Discount!</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="game.html" target=>Guess the word!</a></li>
             <li><a class="dropdown-item" href="drag.html" target=>Drag elements!</a></li>
+            <li><a class="dropdown-item" href="quiz.html" target=>Quiz</a></li>
           </ul>
         </ul>
       </div>
@@ -44,95 +40,53 @@
   </nav>
 
   <center>
-    <div class="container-fluid" style="width: 35%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-      <h2>Login</h2>
-      <form id="myForm" onsubmit="return validateForm()">
-        <div class="input-group flex-nowrap">
-          <span class="input-group-text" id="inputGroup-sizing-lg" style="width: 100px">Username</span>
-          <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" aria-label="Username" aria-describedby="inputGroup-sizing-lg">
-          <span id="usernameError" class="error"></span>
-        </div><br>
-        <div class="input-group flex-nowrap">
-          <span class="input-group-text" id="addon-wrapping" style="width: 100px">Password</span>
-          <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" aria-label="Password" aria-describedby="addon-wrapping">
-          <span id="passwordError" class="error"></span>
-        </div><br>
-        <button type="submit" class="btn btn-primary">
-          Log in
-        </button><br>
+    <br><br><br><br>
+    <div style="width: 50%" class="container mt-5">
+      <h1>Login</h1>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="login">Login:</label>
+          <input type="text" class="form-control" id="login" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" id="loginButton" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to login">Login</button>
       </form>
     </div>
+    <br><br><br><br><br>
   </center>
+  <footer class="bg-dark text-white mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <br>
+          <p>Our gmail: fastburger@gmail.com</p>
+          <p>Our WhatsApp: 88005553535</p>
+          <p>&copy; 2023 FastBurger. All rights reserved.</p><br>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+  const loginForm = document.getElementById('loginForm');
 
-    <script>
-
-    function validateForm() {
-      const username = document.getElementById("username");
-      const password = document.getElementById("password");
-
-      const usernameError = document.getElementById("usernameError");
-      const passwordError = document.getElementById("passwordError");
-
-      usernameError.innerHTML = passwordError.innerHTML = "";
-
-      let valid = true;
-
-      if (username.value === "") {
-        usernameError.innerHTML = "Username is required.";
-        valid = false;
-      }
-
-      if (password.value === "") {
-        passwordError.innerHTML = "Password is required.";
-        valid = false;
-      } else if (password.value.length < 8) {
-        passwordError.innerHTML = "Password must be at least 8 characters.";
-        valid = false;
-      }
-
-      if (valid) {
-        alert("You are successfully logged in!");
-      } else {
-        alert("Login failed. Please check your username and password.");
-      }
-
-      return valid;
-    }
-    let intervalId;
-    let duration;
-
-    function startTimer() {
-      const setDurationInput = document.getElementById("set-duration");
-      const timerDisplay = document.getElementById("timer");
-      const minutes = parseInt(setDurationInput.value, 10);
-
-      if (isNaN(minutes)) {
-        alert("Please enter a valid number.");
-        return;
-      }
-
-      duration = minutes * 60;
-      setDurationInput.disabled = true;
-
-      intervalId = setInterval(function () {
-        if (duration <= 0) {
-          clearInterval(intervalId);
-          setDurationInput.disabled = false;
-          timerDisplay.textContent = "00:00";
-
-          setTimeout(function() {
-            alert("Timer is up!");
-          }, 100);
-        } else {
-          const minutesRemaining = Math.floor(duration / 60);
-          const secondsRemaining = duration % 60;
-          const displayMinutes = String(minutesRemaining).padStart(1, "0");
-          const displaySeconds = String(secondsRemaining).padStart(1, "0");
-          timerDisplay.textContent = `${displayMinutes}:${displaySeconds}`;
-          duration--;
-        }
-      }, 1000);
-    }
-    </script>
-  </body>
-  </html>
+  loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const login = document.getElementById('login').value;
+    const password = document.getElementById('password').value;
+    console.log('Login:', login);
+    console.log('Password:', password);
+    alert("You are succesfully logged in!");
+    window.open("index.html", '_blank');
+  });
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+  </script>
+</body>
+</html>
