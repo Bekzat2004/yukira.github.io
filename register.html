@@ -218,7 +218,7 @@ function validatePhone() {
   var valid = true;
   var phoneInput = document.getElementsByName('phone')[0];
   var phoneError = document.getElementById('phoneError');
-  var phoneRegex = /^\d{10}$/;
+  var phoneRegex = /^\d{11}$/;
 
   if (!phoneRegex.test(phoneInput.value)) {
     phoneError.textContent = 'Invalid phone number';
